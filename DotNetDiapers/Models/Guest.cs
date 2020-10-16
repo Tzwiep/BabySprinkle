@@ -20,7 +20,7 @@ namespace DotNetDiapers.Models
 
         // reference to AspNetUser table
         [ForeignKey("UserId")]
-        public  IdentityUser User { get; set; }
+        public IdentityUser User { get; set; }
 
         //reference to child object
         public List<BabyPrediction> BabyPredictions { get; set; }
