@@ -11,10 +11,15 @@ namespace DotNetDiapers.Models
         public int Id { get; set; }
        
         [Required(ErrorMessage ="Guess what day the baby will be born")]
-        [Display(Name = "Guess The Birthdate")]
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:MMMM dd, yyyy}")]
         public DateTime Due_Date { get; set; }
 
+        [Required(ErrorMessage = "Guess how much the baby will weigh")]
         [Display(Name = "Birth Weight")]
+        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0} lbs")]
+        [Range(5,15, ErrorMessage="Yikes! Hopefully weight will be between 4 and 12 pounds")]
         public double Birth_Weight { get; set; }
 
         [Display(Name = "Gender")]

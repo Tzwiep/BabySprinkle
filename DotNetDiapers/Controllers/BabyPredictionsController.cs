@@ -22,7 +22,8 @@ namespace DotNetDiapers.Controllers
         // GET: BabyPredictions
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.BabyPredictions.Include(b => b.Guest);
+            // order by nearest date
+            var applicationDbContext = _context.BabyPredictions.Include(b => b.Guest).OrderBy(b=>b.Due_Date);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -49,6 +50,7 @@ namespace DotNetDiapers.Controllers
         public IActionResult Create()
         {
             ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Username");
+            
             return View();
         }
 
@@ -65,7 +67,7 @@ namespace DotNetDiapers.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Email", babyPrediction.GuestId);
+            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Username", babyPrediction.GuestId);
             return View(babyPrediction);
         }
 
@@ -82,7 +84,7 @@ namespace DotNetDiapers.Controllers
             {
                 return NotFound();
             }
-            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Email", babyPrediction.GuestId);
+            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Username", babyPrediction.GuestId);
             return View(babyPrediction);
         }
 
@@ -118,7 +120,7 @@ namespace DotNetDiapers.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Email", babyPrediction.GuestId);
+            ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Username", babyPrediction.GuestId);
             return View(babyPrediction);
         }
 
