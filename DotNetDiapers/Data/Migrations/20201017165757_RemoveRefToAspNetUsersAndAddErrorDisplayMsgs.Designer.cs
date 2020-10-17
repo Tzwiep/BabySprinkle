@@ -4,14 +4,16 @@ using DotNetDiapers.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DotNetDiapers.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201017165757_RemoveRefToAspNetUsersAndAddErrorDisplayMsgs")]
+    partial class RemoveRefToAspNetUsersAndAddErrorDisplayMsgs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,12 +41,15 @@ namespace DotNetDiapers.Data.Migrations
                     b.Property<DateTime>("Due_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GuestId")
+                    b.Property<string>("GuestId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GuestId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GuestId");
+                    b.HasIndex("GuestId1");
 
                     b.ToTable("BabyPredictions");
                 });
@@ -279,9 +284,7 @@ namespace DotNetDiapers.Data.Migrations
                 {
                     b.HasOne("DotNetDiapers.Models.Guest", "Guest")
                         .WithMany("BabyPredictions")
-                        .HasForeignKey("GuestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GuestId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

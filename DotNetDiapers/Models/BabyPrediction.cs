@@ -10,17 +10,22 @@ namespace DotNetDiapers.Models
     {
         public int Id { get; set; }
        
-        [Required]
-        public DateTime Due_Date { get; set; } 
+        [Required(ErrorMessage ="Guess what day the baby will be born")]
+        [Display(Name = "Guess The Birthdate")]
+        public DateTime Due_Date { get; set; }
 
+        [Display(Name = "Birth Weight")]
         public double Birth_Weight { get; set; }
 
-        [MaxLength(100)]
-        public string Baby_Name { get;  set; }
-
+        [Display(Name = "Gender")]
         public string Baby_Gender { get; set; }
 
-        public string GuestId { get; set; }
+        [Display(Name="Baby Name")]
+        [MaxLength(20)]
+        public string Baby_Name { get;  set; }
+
+        [Display(Name ="Guest")]
+        public int GuestId { get; set; }
 
         // reference to parent object 
         public Guest Guest { get; set; }
