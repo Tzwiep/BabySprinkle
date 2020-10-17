@@ -15,11 +15,14 @@ namespace DotNetDiapers.Models
 
         public double Birth_Weight { get; set; }
 
+        [MaxLength(100)]
         public string Baby_Name { get;  set; }
+
+        public string Baby_Gender { get; set; }
 
         public string GuestId { get; set; }
 
-        // add reference to parent object
+        // reference to parent object 
         public Guest Guest { get; set; }
     }
 }
