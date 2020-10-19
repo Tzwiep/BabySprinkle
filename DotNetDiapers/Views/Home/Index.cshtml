@@ -2,7 +2,25 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center pt-3 pb-3">
     <h1 class="display-4">Welcome to BabySprinkle</h1>
     <p>Celebrate the coming arrival of our little bundle of joy!</p>
+</div>
+
+<!-- Card layout and style taken from https://getbootstrap.com/docs/4.0/components/card/ -->
+<div class="container d-inline-flex text-center justify-content-center">
+    <div class="card border m-3" style="max-width: 20rem;">
+        <div class="card-header">Sign the Guestbook</div>
+        <div class="card-body">
+            <p class="card-text">Create a profile to let the couple know you've visited, and participate in the shower activities.</p>
+            <a class="btn" asp-area="" asp-controller="Guests" asp-action="Index">RSVP</a>
+        </div>
+    </div>
+    <div class="card border m-3" style="max-width: 20rem;">
+        <div class="card-header">Baby Guessing Game</div>
+        <div class="card-body">
+            <p class="card-text">How good are your psychic instincts? See if you can predict details about the coming baby!</p>
+            <a class="btn" asp-area="" asp-controller="BabyPredictions" asp-action="Index">Play Game</a>
+        </div>
+    </div>
 </div>

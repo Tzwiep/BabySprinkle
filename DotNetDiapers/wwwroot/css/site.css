@@ -1,15 +1,51 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/* My custom colors */
+:root {
+    --MyRed: #841919;
+    --MyRedAlt: #c05a5a;
+    --MyYellow: #FDFBF7;
+    --MyYellowDark: #fdf7ed;
+    --MyTanBrown: #B0A594;
+    --MyGreyTan: #DAD7CD;
+    --MyPurple: #A389A7;
+    --MyPurpleDark: #564059;
+    --MyPurpleLight: #DEA5E6;
+    --MyCharcoal: #424B54;
+    --MyBrown: #A78A7F;
+    --MyPink: #CFAEA5;
+}
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+   
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Custom NavBar Styling 
+--------------------------------------------------------------------------------------
+*/
+.navbar-light {
+    background-color: #FDFBF7;
+}
+.navbar-light .navbar-nav .nav-link {
+        color: var(--MyRed);
+ }
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+        color: var(--MyRedAlt);
+ }
+.nav-link .text-dark {
+    color: var(--MyRed);
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: var(--MyRed);
+}
+a:hover{
+    color:var(--MyRedAlt);
 }
 
 .btn-primary {
@@ -68,4 +104,49 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/* Custom footer modifications */
+.navbar-nav .nav-link{
+    padding: .5em;
+}
+.footer a.nav-link {
+    color: lightgrey;
+}
+.footer a.nav-link:hover {
+    color: grey;
+}
+
+
+/* Card CSS 
+---------------------------------------------------- */
+.border {
+    border-color: var(--MyPink) !important;
+}
+
+.card-header {
+    background-color: #FDFBF7 !important;
+    border-bottom-color: var(--MyPink) !important;
+}
+
+/* Button CSS
+---------------------------------------------------- */
+.btn {
+    background-color: var(--MyRedAlt);
+    color: #fff;
+}
+    .btn:hover {
+        color: #dedede;
+    }
+
+
+.table .thead-dark th {
+    background-color: var(--MyRedAlt);
+    border-color: var(--MyRedAlt);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--MyYellowDark);
+}
+.table-hover tbody tr:hover {
+    background-color: #FFF5E6;
 }
