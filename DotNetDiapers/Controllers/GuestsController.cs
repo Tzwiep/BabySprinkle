@@ -18,7 +18,7 @@ namespace DotNetDiapers.Controllers
         {
             _context = context;
         }
-       
+
         // GET: Guests
         public async Task<IActionResult> Index()
         {
@@ -58,6 +58,7 @@ namespace DotNetDiapers.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _context.Add(guest);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -148,6 +149,25 @@ namespace DotNetDiapers.Controllers
         private bool GuestExists(int id)
         {
             return _context.Guests.Any(e => e.GuestId == id);
+        }
+
+        /**
+         * This custom validation method checks the entered username and caompares it against usernames in the database.
+         * Returns a boolean in JSON format, and triggers an error for the user if username exists.
+         * This method is based on from material found at: https://www.codeproject.com/Articles/1130342/Best-Ways-of-Implementing-Uniqueness-or-Unique-K,
+         * as well material found at: http://www.tugberkugurlu.com/archive/check-instantly-if-username-exists-asp-net-mvc-remote-validation
+         */
+        public JsonResult UserNameExists(string userName)
+        {
+            var user = _context.Guests.FirstOrDefault(u=>u.Username == userName);
+            if (user != null)
+            {
+                return Json(false);
+            }
+            else
+            {
+                return Json(true);
+            }
         }
     }
 }
