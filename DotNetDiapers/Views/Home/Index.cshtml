@@ -1,26 +1,51 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
-
+<div class="jumbotron titleJumbo">
 <div class="text-center pt-3 pb-3">
     <h1 class="display-4">Welcome to BabySprinkle</h1>
     <p>Celebrate the coming arrival of our little bundle of joy!</p>
 </div>
 
-<!-- Card layout and style taken from https://getbootstrap.com/docs/4.0/components/card/ -->
+<!-- Card layout and style based on code found at: https://getbootstrap.com/docs/4.0/components/card/ -->
 <div class="container d-inline-flex text-center justify-content-center">
     <div class="card border m-3" style="max-width: 20rem;">
         <div class="card-header">Sign the Guestbook</div>
         <div class="card-body">
             <p class="card-text">Create a profile to let the couple know you've visited, and participate in the shower activities.</p>
-            <a class="btn" asp-area="" asp-controller="Guests" asp-action="Index">RSVP</a>
+            <a class="btn gameBtn"  asp-area="" asp-controller="Guests" asp-action="Index">RSVP</a>
         </div>
     </div>
     <div class="card border m-3" style="max-width: 20rem;">
         <div class="card-header">Baby Guessing Game</div>
         <div class="card-body">
             <p class="card-text">How good are your psychic instincts? See if you can predict details about the coming baby!</p>
-            <a class="btn" asp-area="" asp-controller="BabyPredictions" asp-action="Index">Play Game</a>
+            <a class="btn gameBtn"  asp-area="" asp-controller="BabyPredictions" asp-action="Index">Play Game</a>
+        </div>
+    </div>
+</div>
+</div>
+
+ 
+<div class="container border-top mt-5">
+    <div class="row">
+        <h4 class="col pt-3 redTitle"> How It Works </h4>
+        <div class="col-8 p-3">
+            <p>BabySprinkle is virtual baby shower destination, where the expectant couple can connect with friends and family.
+            When guests RSVP for the virtual baby shower they are entered into the database with their name, email, and username.
+            The username they create is stored in the database and used to participate in the activities at the virtual baby shower, such as the Guess The Date game.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container border-top mt-3 mb-5">
+    <div class="row">
+        <h4 class="col pt-3 redTitle">Site Details</h4>
+        <div class="col-8 p-3">
+            <p>This site was created for COMP 2084 Server-Side Scripting with ASP.NET at Georgian College, Fall 2020.</p>
+            <p>This site is created using ASP.NET Core, SQL Server, Entity Framework, and is deployed to Azure via GitHub.
+            View the source code for this site at: <a href="https://github.com/Tzwiep/F20-COMP2084-st200428335-DotNetProject">https://github.com/Tzwiep/F20-COMP2084-st200428335-DotNetProject</a></p>
+            <p><a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a></p>
         </div>
     </div>
 </div>

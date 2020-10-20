@@ -10,11 +10,12 @@ for details on configuring this project to bundle and minify static web assets. 
     --MyTanBrown: #B0A594;
     --MyGreyTan: #DAD7CD;
     --MyPurple: #A389A7;
-    --MyPurpleDark: #564059;
+    --MyPurpleDark: #7B6C76;
     --MyPurpleLight: #DEA5E6;
     --MyCharcoal: #424B54;
     --MyBrown: #A78A7F;
-    --MyPink: #CFAEA5;
+    --MyPink: #A27B91;
+    --MyPinkHover: #AE8892;
 }
 
 a.navbar-brand {
@@ -31,6 +32,7 @@ a.navbar-brand {
     background-color: #FDFBF7;
 }
 .navbar-light .navbar-nav .nav-link {
+        color: var(--MyRed);
         color: var(--MyRed);
  }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
@@ -49,15 +51,19 @@ a:hover{
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: var(--MyPink);
+    border-color: var(--MyPink);
 }
+    .btn-primary:hover {
+        background-color: var(--MyPinkHover);
+        border-color: var(--MyPink);
+    }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+        color: #fff;
+        background-color: #1b6ec2;
+        border-color: #1861ac;
 }
 
 /* Sticky footer styles
@@ -131,13 +137,13 @@ body {
 
 /* Button CSS
 ---------------------------------------------------- */
-.btn {
+.btn.gameBtn {
     background-color: var(--MyRedAlt);
     color: #fff;
 }
-    .btn:hover {
-        color: #dedede;
-    }
+.btn.gameBtn:hover {
+    color: #dedede;
+}
 
 
 .table .thead-dark th {
@@ -149,4 +155,31 @@ body {
 }
 .table-hover tbody tr:hover {
     background-color: #FFF5E6;
+}
+
+div.p{
+    line-height:1.6;
+}
+h4.redTitle {
+    color: var(--MyRed);
+   font-family: 'Montserrat', sans-serif;  
+}
+h3.redTitle {
+    color: var(--MyRed);
+    font-family: 'Montserrat', sans-serif;
+}
+h1.tableHeadText {
+    color: var(--MyCharcoal);
+    font-family: 'Montserrat', sans-serif;
+}
+.card-header {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--MyRed);
+    font-weight: bold;
+}
+.jumbotron.titleJumbo{
+    background-image:url(/images/backgroundPrintFaded.png);
+    background-color:white;
+    background-position:center;
+    background-size:cover;
 }

@@ -1,15 +1,14 @@
 ﻿@model DotNetDiapers.Models.BabyPrediction
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "New Guess";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>BabyPrediction</h4>
+<h3 class="redTitle">New Baby Prediction</h3>
 <hr />
-<div class="row">
+<div class="row mb-3">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -39,18 +38,20 @@
             </div>
             <div class="form-group">
                 <label asp-for="GuestId" class="control-label"></label>
-                <select asp-for="GuestId" class ="form-control" asp-items="ViewBag.GuestId"></select>
+                <select asp-for="GuestId" class="form-control" asp-items="ViewBag.GuestId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>
+        <div class="pb-3 mb-3">
+            <a asp-action="Index">Back to List</a>
+        </div>
     </div>
+    
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
