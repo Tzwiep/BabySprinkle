@@ -18,7 +18,7 @@ namespace DotNetDiapers.Controllers
         {
             _context = context;
         }
-
+       
         // GET: Guests
         public async Task<IActionResult> Index()
         {
