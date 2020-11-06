@@ -37,11 +37,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td class="text-right">
-                <a asp-action="Edit" asp-route-id="@item.GuestId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.GuestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GuestId">Delete</a>
-            </td>
+            <!--Show the edit/details/delete links to registered users-->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td class="text-right">
+                    <a asp-action="Edit" asp-route-id="@item.GuestId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.GuestId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GuestId">Delete</a>
+                </td>
+            }
+            <!--Hide the edit/details/delete links from anonymous users and maintain table spacing-->
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <td class="text-right">
+                </td>
+            }
         </tr>
 }
     </tbody>

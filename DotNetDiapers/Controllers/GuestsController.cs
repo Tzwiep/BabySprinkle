@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNetDiapers.Data;
 using DotNetDiapers.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetDiapers.Controllers
 {
+    // make all methods for authenticated users only
+    [Authorize]
     public class GuestsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +23,8 @@ namespace DotNetDiapers.Controllers
         }
 
         // GET: Guests
+        // allow anonymous users on index view
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Guests.ToListAsync());
