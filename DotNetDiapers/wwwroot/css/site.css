@@ -5,6 +5,7 @@ for details on configuring this project to bundle and minify static web assets. 
 :root {
     --MyRed: #841919;
     --MyRedAlt: #c05a5a;
+    --MyGreyRed: #BC8688;
     --MyYellow: #FDFBF7;
     --MyYellowDark: #fdf7ed;
     --MyTanBrown: #B0A594;
@@ -42,22 +43,24 @@ a.navbar-brand {
     color: var(--MyRed);
 }
 
-/* Provide sufficient contrast against white background */
+/* Links - Provide sufficient contrast against white background */
 a {
     color: var(--MyRed);
 }
 a:hover{
     color:var(--MyRedAlt);
 }
-
+/* Primary buttons (default buttons)
+   -----------------------------------------------------------------
+*/
 .btn-primary {
     color: #fff;
-    background-color: var(--MyPink);
-    border-color: var(--MyPink);
+    background-color: var(--MyRed);
+    border-color: var(--MyRed);
 }
-    .btn-primary:hover {
-        background-color: var(--MyPinkHover);
-        border-color: var(--MyPink);
+    .btn-primary:hover {    
+        background-color: var(--MyRedAlt);
+        border-color: var(--MyRed);
     }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -66,10 +69,14 @@ a:hover{
         border-color: #1861ac;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    background-color: var(--MyPinkHover);
+    border-color: var(--MyPink);
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
@@ -109,7 +116,7 @@ body {
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  /*line-height: 60px;  // Vertically center the text there */
 }
 
 /* Custom footer modifications */
@@ -135,7 +142,7 @@ body {
     border-bottom-color: var(--MyPink) !important;
 }
 
-/* Button CSS
+/* Custom Button CSS
 ---------------------------------------------------- */
 .btn.gameBtn {
     background-color: var(--MyRedAlt);
@@ -145,6 +152,54 @@ body {
     color: #dedede;
 }
 
+.btn.registerBtn.m-3 {
+    min-width: 8em;
+    background-color: var(--MyGreyRed);
+    border: 2px solid var(--MyGreyRed);
+        color: #fff;
+}
+.btn.registerBtn.m-3:hover {
+        color: var(--MyGreyRed);
+        border: 2px solid var(--MyGreyRed);
+        background-color:transparent;
+}
+
+.btn.loginBtn.m-3 {
+    min-width: 8em;
+    background-color: var(--MyRedAlt);
+    border: 2px solid var(--MyRedAlt);
+    color: #fff;
+}
+.btn.loginBtn:hover.m-3 {
+        color: var(--MyRedAlt);
+        border: 2px solid var(--MyRedAlt);
+        background-color: transparent;
+}
+.btn.googleBtn {
+    max-width: 225px;
+    border-top: 0.5px solid #e6e6e6;
+    border-left: 0.5px solid #e6e6e6;
+    border-right: 0.5px solid #e6e6e6;
+    border-bottom: 1px solid #dedede;
+    padding: 7px 14px 7px 14px;
+    box-shadow: 0px 2px #dedede;
+}
+    .btn.googleBtn:hover {
+        max-width: 225px;
+        border-top: 1px solid #dedede;
+        border-left: 1px solid #dedede;
+        border-right: 1px solid #dedede;
+        border-bottom: 2px solid #b3b3b3;
+        padding: 7px 14px 7px 14px;
+        box-shadow: -1px 3px #b3b3b3;
+    }
+    .googleLogo{
+        max-width:200px;
+    }
+
+/* Table and title styles
+   -------------------------------------------------------
+*/
 
 .table .thead-dark th {
     background-color: var(--MyRedAlt);
