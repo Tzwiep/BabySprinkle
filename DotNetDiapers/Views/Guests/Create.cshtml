@@ -1,4 +1,6 @@
 ﻿@model DotNetDiapers.Models.Guest
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "New Guest";
@@ -6,7 +8,7 @@
 }
 
 
-<h3 class="redTitle" >New Guest</h3>
+<h3 class="redTitle">New Guest</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,7 +21,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" placeholder="@Html.DisplayFor(model => model.Email)" class="form-control" />
+                <!--Autofill email address from Identity User-->
+                <input asp-for="Email" value="@User.Identity.Name" class="form-control" /> 
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
