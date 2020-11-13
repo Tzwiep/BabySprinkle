@@ -8,7 +8,7 @@
 <p> View the site at: <a href="https://babysprinkle.azurewebsites.net/" target="_blank">https://babysprinkle.azurewebsites.net/</a> </p>
 <h4>Image References: </h4>
 <p>Home Page Background: <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a></p>
-<p>Google logo and sign-in button guidelines sourced from <a href='https://developers.google.com/identity/branding-guidelines'></a></p>
+<p>Google logo and sign-in button guidelines sourced from: https://developers.google.com/identity/branding-guidelines </p>
 <h4>Code References: </h4>
 <p>Bootstrap card class formatting information sourced from: https://getbootstrap.com/docs/4.0/components/card/ </p>
 <p>Information for how to create a remote validator derived from information at: https://www.codeproject.com/Articles/1130342/Best-Ways-of-Implementing-Uniqueness-or-Unique-K, 
