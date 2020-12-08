@@ -81,16 +81,16 @@ namespace DotNetDiapers.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("Error");
             }
 
             var babyPrediction = await _context.BabyPredictions.FindAsync(id);
             if (babyPrediction == null)
             {
-                return NotFound();
+                return View("Error");
             }
             ViewData["GuestId"] = new SelectList(_context.Guests, "GuestId", "Username", babyPrediction.GuestId);
-            return View(babyPrediction);
+            return View("Edit", babyPrediction);
         }
 
         // POST: BabyPredictions/Edit/5
